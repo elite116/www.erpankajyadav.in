@@ -147,26 +147,56 @@ margin-bottom: 10px;}
         <p style="font-size:18px;">&nbsp;E-Mail: <strong>sampark@erpankajyadav.in</strong> or Fill the form below</p>
 </div>
            
-        <div class="frms" align="center">
-        <form action="mailto:sampark@erpankajyadav.in" method="post">
+         <div class="frms" align="center">
+        <form id="contactForm"  method="post">
             <p><strong>
                 NAME :
                 <input type="text" name="NAME" size="50"
-                       maxlength="30" required="required" /><br/><br/>
+                       maxlength="150" required="required" /><br/><br/>
                EMAIL :
                <input type="email" name="email" size="50"
-                       maxlength="30" required="required"/><br /><br />
+                       maxlength="150" required="required"/><br /><br />
                 MOBILE :
-                <input type="text" name="NAME" size="50" maxlength="30" required="required"/><br><br>
+                <input type="text" name="Mobile" size="50" maxlength="30" required="required"/><br><br>
                 MESSAGE/COMMENTS/CONCERNS :<br /></strong>
-                <textarea name="comments" cols="80" rows="8" required="required" resize="none" />                
-                </textarea></p>
+                <textarea name="comments" cols="80" rows="8" required="required" resize="none" /></textarea></p>
             <p>
             <input type="submit" value="SUBMIT"  width="100%" height="40%"  background-color="green" />
                 <input type="reset" value="RESET"/>
             </p>
 
         </form>
+            <script>
+    // Get the form element
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Collect the form data
+      const formData = new FormData(form);
+      const formDataObj = {};
+      formData.forEach((value, key) => formDataObj[key] = value);
+
+      // Send the form data to the Google Apps Script Web App
+        fetch('https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formDataObj) // Send data as JSON
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Form submitted successfully!');
+        form.reset(); // Reset the form
+      })
+      .catch(error => {
+        alert('Error submitting form. Please try again later.');
+        console.error('Error:', error);
+      });
+    });
+            </script>
         </div>
 
     <img src="bdg.png" width="400" height="400" style="align-content:center;padding:10px;display:inline-flex;"><img src="iaa.jpg" width="450" height="300" style="align-content:center;padding-bottom:50px;padding-right:30px;display:inline-flex;"><img src="gca.jpg" width="340" height="340" style="align-content:center;padding-bottom:50px;display:inline-flex;">
@@ -195,4 +225,5 @@ margin-bottom: 10px;}
 
     </footer>
 </body>
+
 </html>
