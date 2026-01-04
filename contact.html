@@ -151,15 +151,15 @@ margin-bottom: 10px;}
         <form id="contactForm" action="https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec" method="post">
             <p><strong>
                 NAME :
-                <input type="text" name="data[name]" size="50" id="name"
+                <input type="text" name="data.name" size="50" id="name"
                        maxlength="150" required="required" /><br/><br/>
                EMAIL :
-               <input type="email" name="data[email]" size="50" id="email"
+               <input type="email" name="data.email" size="50" id="email"
                        maxlength="150" required="required"/><br /><br />
                 MOBILE :
-                <input type="text" name="data[Mobile]" id="mobile" size="50" maxlength="30" required="required"/><br><br>
+                <input type="text" name="data.mobile" id="mobile" size="50" maxlength="30" required="required"/><br><br>
                 MESSAGE/COMMENTS/CONCERNS :<br /></strong>
-                <textarea name="data[comments]" id="comments" cols="80" rows="8" required="required" resize="none" /></textarea></p>
+                <textarea name="data.comments" id="comments" cols="80" rows="8" required="required" resize="none" /></textarea></p>
             <p>
             <input type="submit" value="SUBMIT"  width="100%" height="40%"  background-color="green" />
                 <input type="reset" value="RESET"/>
@@ -227,5 +227,6 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
