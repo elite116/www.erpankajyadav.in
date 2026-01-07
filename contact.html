@@ -168,12 +168,10 @@ margin-bottom: 10px;}
         </form>
            
              <script>
-const form = document.querySelector("#contactForm");
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // stop normal form submit
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const formData = new FormData(form);
+  const formData = new FormData(this);
 
   fetch("https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec", {
     method: "POST",
@@ -183,7 +181,7 @@ form.addEventListener("submit", function (e) {
   .then(data => {
     if (data.status === "success") {
       alert("Form submitted successfully!");
-      form.reset();
+      this.reset();
     } else {
       alert("Error: " + data.message);
     }
@@ -194,6 +192,7 @@ form.addEventListener("submit", function (e) {
   });
 });
 </script>
+
 
         </div>
 
@@ -225,6 +224,7 @@ form.addEventListener("submit", function (e) {
 </body>
 
 </html>
+
 
 
 
