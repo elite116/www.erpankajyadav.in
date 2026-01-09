@@ -167,31 +167,7 @@ margin-bottom: 10px;}
 
         </form>
            
-             <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // stop normal form submit
-
-  const formData = new FormData(this);
-
-  fetch("https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === "success") {
-      alert("Form submitted successfully!");
-      this.reset();
-    } else {
-      alert("Error: " + data.message);
-    }
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Submission failed");
-  });
-});
-</script>
+           
 
 
         </div>
@@ -224,6 +200,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 </body>
 
 </html>
+
 
 
 
