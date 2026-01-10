@@ -148,7 +148,7 @@ margin-bottom: 10px;}
 </div>
            
          <div class="frms" align="center">
-        <form action="https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec" method="post">
+        <form name="formsheet" action="https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec" method="post">
             <p><strong>
                 NAME :
                 <input type="text" name="name" size="50" id="NAME"
@@ -168,7 +168,7 @@ margin-bottom: 10px;}
         </form>
            <script>
   const scriptURL ='https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec'
-  const form = document.forms['submit-to-google-sheet']
+  const form = document.forms['formsheet']
 
   form.addEventListener('submit', e => {
     e.preventDefault()
@@ -210,6 +210,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
