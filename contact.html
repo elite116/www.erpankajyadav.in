@@ -166,7 +166,17 @@ margin-bottom: 10px;}
             </p>
 
         </form>
-           
+           <script>
+  const scriptURL ='https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
            
 
 
@@ -200,6 +210,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
