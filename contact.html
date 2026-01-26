@@ -151,15 +151,15 @@ margin-bottom: 10px;}
         <form name="formsheet" action="https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec" method="post">
             <p><strong>
                 NAME :
-                <input type="text" name="name" size="50" id="NAME"
+                <input type="text" name="name" size="50" id="name"
                        maxlength="150" required="required" /><br/><br/>
                EMAIL :
-               <input type="email" name="EMAIL" size="50" id="EMAIL"
+               <input type="email" name="email" size="50" id="email"
                        maxlength="150" required="required"/><br /><br />
                 MOBILE :
-                <input type="text" name="MOBILE" id="MOBILE" size="50" maxlength="30" required="required"/><br><br>
+                <input type="text" name="mobile" id="mobile" size="50" maxlength="30" required="required"/><br><br>
                 MESSAGE/COMMENTS/CONCERNS :<br /></strong>
-                <textarea name="CONCERNS" id="CONCERNS" cols="80" rows="8" required="required" resize="none" /></textarea></p>
+                <textarea name="concerns" id="concerns" cols="80" rows="8" required="required" resize="none" /></textarea></p>
             <p>
             <input type="submit" value="SUBMIT"  width="100%" height="40%"  background-color="green" />
                 <input type="reset" value="RESET"/>
@@ -167,15 +167,37 @@ margin-bottom: 10px;}
 
         </form>
            <script>
-  const scriptURL ='https://script.google.com/macros/s/AKfycbx-RoDtufBGLkXzpO4ZKI1UvxEjFJ-wl7ZGrjubj9u3tJNvaVA83bpPzdrJo1gVw_51/exec'
-  const form = document.forms['formsheet']
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx0oytVFly6Kb0oPQruKnr_kOeDiucmDUs4aGzh7Mb2q5VdJJu0YQsIh5-AGlMPUebH/exec';
+  const form = document.forms['formsheet'];
+  const btn = document.getElementById('submitBtn');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors'})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+
+    try {
+      const response = await fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form),
+        mode: 'cors' 
+      });
+
+      const result = await response.json();
+      if (result.result === 'success') {
+        alert('Data saved successfully!');
+        form.reset();
+      } else {
+        throw new Error(result.error);
+      }
+    } catch (error) {
+      console.error('Error!', error.message);
+      alert('Submission failed. Check console for details.');
+    } finally {
+      btn.disabled = false;
+      btn.innerText = "Submit";
+    }
+  });
 </script>
            
 
@@ -210,6 +232,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
