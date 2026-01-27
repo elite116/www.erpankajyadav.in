@@ -185,7 +185,7 @@ margin-bottom: 10px;}
 
       const result = await response.json();
       if (result.result === 'success') {
-        alert('Your Entries Have Been Successfully Received.\n You Will Receive the Response Shortly on the Entered Email ID/Contact Details.\nThank You & Warm Regards!!!');
+        alert('Your Entries Have Been Successfully Received.\\n You Will Receive the Response Shortly on the Entered Email ID/Contact Details.\\n Thank You & Warm Regards!!!');
         form.reset();
       } else {
         throw new Error(result.error);
@@ -232,6 +232,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
