@@ -185,14 +185,14 @@ margin-bottom: 10px;}
 
       const result = await response.json();
       if (result.result === 'success') {
-        alert('Data saved successfully!');
+        alert('Your Entries Have Been Successfully Received.You Will Receive the Response Shortly on the Entered Email ID/Contact Details.Thank You & Warm Regards!!!');
         form.reset();
       } else {
         throw new Error(result.error);
       }
     } catch (error) {
       console.error('Error!', error.message);
-      alert('Thank you for submission!!!We will contact you soon');
+      alert('Sorry But form Not Submitted,Please try later or use the Email ID mentioned.Regards!!!');
     } finally {
       btn.disabled = false;
       btn.innerText = "Submit";
@@ -232,6 +232,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
