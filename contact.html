@@ -173,7 +173,14 @@ margin-bottom: 10px;}
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    btn.disabled = true;
+     const timestamp = Date.now().toString(36).toUpperCase();
+  const randomPart = Math.random().toString(36).substring(2, 5).toUpperCase();
+  const uniqueID = `ID-${timestamp}-${randomPart}`;
+    
+  // 2. Put the ID into the hidden input so it sends to Google Sheets
+  document.getElementById('uniqueId').value = uniqueID;
+      
+      btn.disabled = true;
     btn.innerText = "Sending...";
 
     try {
@@ -186,8 +193,8 @@ margin-bottom: 10px;}
       const result = await response.json();
       if (result.result === 'success') {
         alert(`Your Entries Have Been Successfully Received.
-You Will Receive the Response Shortly on the Entered Email ID/Contact Details.
-Thank You & Warm Regards!!!`);
+               You Will Receive the Response Shortly on the Entered Email ID/Contact Details.
+               Thank You & Warm Regards!!!\n\nYour Unique ID is: ${uniqueID}\n\n`);
         form.reset();
       } else {
         throw new Error(result.error);
@@ -234,6 +241,7 @@ Thank You & Warm Regards!!!`);
 </body>
 
 </html>
+
 
 
 
