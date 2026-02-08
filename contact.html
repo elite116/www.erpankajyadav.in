@@ -148,7 +148,7 @@ margin-bottom: 10px;}
 </div>
            
          <div class="frms" align="center">
-        <form name="formsheet" action="https://script.google.com/macros/s/AKfycbyn2EirxewU9kjA4ka0KqF3rx9e0BNebHSVjBu1Nuwh1tVQbZwjrLe8JPe8mYz8RacK/exec" method="post">
+        <form name="formsheet" action="https://script.google.com/macros/s/AKfycbwi_wTK0RXi8hMywlV2kI8IJ39IRtbsiiXOyVxisgBtCMEZS4oGiyQWRDO4f761xS5_/exec" method="post">
             <p><strong>
                 NAME :
                 <input type="text" name="name" size="50" id="name" placeholder="      Please Enter Full Name"
@@ -168,7 +168,7 @@ margin-bottom: 10px;}
 
         </form>
            <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyn2EirxewU9kjA4ka0KqF3rx9e0BNebHSVjBu1Nuwh1tVQbZwjrLe8JPe8mYz8RacK/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwi_wTK0RXi8hMywlV2kI8IJ39IRtbsiiXOyVxisgBtCMEZS4oGiyQWRDO4f761xS5_/exec';
   const form = document.forms['formsheet'];
   const btn = document.getElementById('submitBtn');
 
@@ -176,7 +176,7 @@ margin-bottom: 10px;}
     e.preventDefault();
      const timestamp = Date.now().toString(36).toUpperCase();
   const randomPart = Math.random().toString(36).substring(2, 5).toUpperCase();
-  const uniqueID = `ID-${timestamp}-${randomPart}`;
+  const uniqueID = `${timestamp}-${randomPart}`;
     
   // 2. Put the ID into the hidden input so it sends to Google Sheets
   document.getElementById('uniqueid').value = uniqueID;
@@ -242,6 +242,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
