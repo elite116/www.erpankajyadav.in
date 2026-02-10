@@ -193,7 +193,7 @@ margin-bottom: 10px;}
 
       const result = await response.json();
       if (result.result === 'success') {
-        alert(`Your Entries Have Been Successfully Received.\n\nYou Will Receive the Response Shortly on the Entered Email ID/Contact Details.\n\nThank You & Warm Regards!!!\n\nYour Unique ID is: ${uniqueID}\n\n`);
+        alert(`Your Entries Have Been Successfully Received.\nYou Will Receive the Response Shortly on the Entered Email ID/Contact Details.\nThank You & Warm Regards!!!\n\nYour Unique ID is: ${uniqueID}\n\n`);
         form.reset();
       } else {
         throw new Error(result.error);
@@ -240,6 +240,7 @@ margin-bottom: 10px;}
 </body>
 
 </html>
+
 
 
 
